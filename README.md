@@ -1,4 +1,12 @@
-# ticketswap-watch
+# ticketswap-watch-fixed
+# Fixes
+
+- Updated CSS selector
+- Lowered fetch interval to 1000ms
+- App stops when available ticket is found
+
+From original:
+
 This script check Ticketswap periodically for new ticket available on sale and gives notification on your computer.
 
 This works with tickets that have variations in their ticket.

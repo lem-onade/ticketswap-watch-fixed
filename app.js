@@ -8,8 +8,8 @@ const notifier = require('node-notifier');
 const exec = require('child_process').exec;
 
 const HOST = 'https://www.ticketswap.com';
-const EVENT_URL = '/event/h-a-i-k-u-avec-dixon/3ba089c9-1d9a-4851-8635-1332198449c1';
-const CHECK_INTERVAL_MS = 60000;
+const EVENT_URL = '/event/lokerse-feesten-2021/e3e0f133-4619-44ed-a5e1-a0a5acab0c28';
+const CHECK_INTERVAL_MS = 1000;
 
 let cookieJar = request.jar();
 
@@ -46,6 +46,7 @@ let botAction = {
   availableTicket: function (url, data) {
     console.log(`${url} : ---> ${data} available`);
     exec(`open ${url}`);
+    process.exit(1);
     return notifier.notify({
       'title': 'New ticket!!!',
       'message': url,
@@ -78,7 +79,7 @@ let app = function () {
     let linksResults = yield linksFn;
 
     _.each(linksResults, function ($query, url) {
-      let counterValue = $query('.counter-available .counter-value').text();
+      let counterValue = $query('.css-rtbbdx.emxpup61').first().text();
 
       console.log(parseInt(counterValue, 10));
 
